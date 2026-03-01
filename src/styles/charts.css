@@ -1,0 +1,282 @@
+/* Chart Section Styles */
+.chart-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.chart-section__header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chart-section__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.chart-section__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.metric-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.metric-selector__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.metric-selector__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.metric-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.metric-checkbox:hover {
+  background-color: #f8fafc;
+}
+
+.metric-checkbox input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.metric-checkbox__color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.metric-checkbox__label {
+  color: #374151;
+  font-weight: 500;
+}
+
+.chart-section__content {
+  display: grid;
+  gap: 25px;
+}
+
+.chart-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 400px;
+}
+
+/* Chart Tooltip */
+.chart-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.chart-tooltip__time {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+
+.chart-tooltip__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 0.8125rem;
+}
+
+.chart-tooltip__color {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.chart-tooltip__name {
+  color: #64748b;
+  margin-right: 4px;
+}
+
+.chart-tooltip__value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Chart Statistics */
+.chart-stats {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.chart-stats h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.chart-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-item__label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.stat-item__value {
+  font-size: 0.875rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Loading and Empty States */
+.chart-section__loading,
+.chart-section__empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.chart-section__loading p,
+.chart-section__empty p {
+  margin-top: 15px;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+/* Recharts Customizations */
+.recharts-wrapper {
+  font-family: inherit;
+}
+
+.recharts-tooltip-wrapper {
+  border-radius: 6px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+.recharts-legend-wrapper {
+  padding-top: 20px !important;
+}
+
+.recharts-legend-item {
+  font-size: 0.875rem !important;
+}
+
+.recharts-brush-text {
+  font-size: 0.75rem !important;
+}
+
+.recharts-brush-traveller {
+  fill: #3b82f6 !important;
+  stroke: #3b82f6 !important;
+}
+
+.recharts-brush-slide {
+  fill: #3b82f6 !important;
+  fill-opacity: 0.3 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chart-section {
+    padding: 20px;
+  }
+  
+  .chart-section__controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .metric-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .metric-selector__options {
+    gap: 8px;
+  }
+  
+  .metric-checkbox {
+    padding: 4px 8px;
+    font-size: 0.8125rem;
+  }
+  
+  .chart-container {
+    padding: 15px;
+    min-height: 300px;
+  }
+  
+  .chart-stats__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-section {
+    padding: 15px;
+  }
+  
+  .chart-container {
+    padding: 10px;
+    min-height: 250px;
+  }
+  
+  .chart-stats {
+    padding: 15px;
+  }
+  
+  .stat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

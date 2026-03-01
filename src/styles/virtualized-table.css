@@ -1,0 +1,261 @@
+/* Virtualized Table Styles */
+.virtualized-table {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.virtualized-table__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+}
+
+.virtualized-table__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.virtualized-table__info {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Filters */
+.virtualized-table__filters {
+  padding: 1rem 1.5rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-controls {
+  margin-bottom: 1rem;
+}
+
+.filter-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.filter-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filter-input label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.filter-input input {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: border-color 0.2s;
+}
+
+.filter-input input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Table Container */
+.virtualized-table__container {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Header Row */
+.virtualized-table__header-row {
+  display: flex;
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.virtualized-table__header-cell {
+  padding: 0.75rem 0.5rem;
+  border-right: 1px solid #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+
+.virtualized-table__header-cell:hover {
+  background: #f3f4f6;
+}
+
+.virtualized-table__header-cell:last-child {
+  border-right: none;
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sort-indicator {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-left: 0.5rem;
+}
+
+.virtualized-table__header-cell.sorted-asc .sort-indicator,
+.virtualized-table__header-cell.sorted-desc .sort-indicator {
+  color: #3b82f6;
+}
+
+/* Table Body */
+.virtualized-table__body {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Table Rows */
+.virtualized-table__row {
+  display: flex;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.virtualized-table__row:hover {
+  background: #f9fafb;
+}
+
+.virtualized-table__row:nth-child(even) {
+  background: #fafafa;
+}
+
+.virtualized-table__row:nth-child(even):hover {
+  background: #f3f4f6;
+}
+
+/* Table Cells */
+.virtualized-table__cell {
+  padding: 0.75rem 0.5rem;
+  border-right: 1px solid #f3f4f6;
+  font-size: 0.875rem;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.virtualized-table__cell:last-child {
+  border-right: none;
+}
+
+/* Loading and Empty States */
+.virtualized-table__loading,
+.virtualized-table__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.virtualized-table__loading .loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.virtualized-table__footer {
+  padding: 1rem 1.5rem;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.virtualized-table__stats {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .virtualized-table__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .filter-inputs {
+    grid-template-columns: 1fr;
+  }
+  
+  .virtualized-table__container {
+    height: 300px;
+  }
+  
+  .virtualized-table__cell {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .virtualized-table__header-cell {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .virtualized-table__stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .virtualized-table__container {
+    height: 250px;
+  }
+  
+  .virtualized-table__filters {
+    padding: 0.75rem 1rem;
+  }
+  
+  .virtualized-table__header {
+    padding: 1rem;
+  }
+  
+  .virtualized-table__footer {
+    padding: 0.75rem 1rem;
+  }
+}
