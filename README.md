@@ -68,6 +68,8 @@ BatteryProject/
 
 ## 🚀 Getting Started
 
+- **🌐 Live Demo**: [View the deployed application](https://battery-telemetry-dashboard.netlify.app/)
+
 ### Prerequisites
 - Node.js (version 16 or higher)
 - npm or yarn package manager
