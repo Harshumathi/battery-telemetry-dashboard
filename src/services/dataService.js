@@ -1,11 +1,8 @@
-/**
- * Dynamic data service for battery telemetry
- * Configured to handle any battery field dynamically
- */
+
 
 // Configuration for dynamic field handling
 export const FIELD_CONFIG = {
-  // Core fields that are always expected
+  
   time: {
     label: 'Time',
     type: 'timestamp',
@@ -74,11 +71,6 @@ class DataService {
     ];
   }
 
-  /**
-   * Load telemetry data from JSON files
-   * @param {string} filePath - Path to JSON file
-   * @returns {Promise<Array>} - Array of telemetry records
-   */
   async loadTelemetryData(filePath) {
     if (this.cache.has(filePath)) {
       return this.cache.get(filePath);
@@ -104,11 +96,7 @@ class DataService {
     }
   }
 
-  /**
-   * Load specific battery data file
-   * @param {string} batteryId - Battery ID ('1', '2', '3', or 'all')
-   * @returns {Promise<Array>} - Array of telemetry records
-   */
+
   async loadBatteryData(batteryId = 'all') {
     if (batteryId === 'all') {
       return this.loadAllBatteryData();
@@ -118,10 +106,6 @@ class DataService {
     return this.loadTelemetryData(filePath);
   }
 
-  /**
-   * Load all battery data files
-   * @returns {Promise<Array>} - Combined array of all telemetry records
-   */
   async loadAllBatteryData() {
     try {
       const dataPromises = this.dataFiles.map(file => 
@@ -139,11 +123,6 @@ class DataService {
     }
   }
 
-  /**
-   * Normalize and validate telemetry data
-   * @param {Array} data - Raw telemetry data
-   * @returns {Array} - Normalized data
-   */
   normalizeData(data) {
     if (!data || data.length === 0) return [];
 
@@ -174,11 +153,7 @@ class DataService {
       .filter(record => !isNaN(record.time));
   }
 
-  /**
-   * Get latest record from data
-   * @param {Array} data - Telemetry data
-   * @returns {Object|null} - Latest record
-   */
+
   getLatestRecord(data) {
     if (!data || data.length === 0) return null;
     
@@ -187,12 +162,6 @@ class DataService {
     );
   }
 
-  /**
-   * Get data slice for charting (latest N records)
-   * @param {Array} data - Full telemetry data
-   * @param {number} limit - Number of records to return
-   * @returns {Array} - Sliced data
-   */
   getChartData(data, limit = 500) {
     if (!data || data.length === 0) return [];
     
@@ -201,20 +170,12 @@ class DataService {
       .sort((a, b) => a.time - b.time);
   }
 
-  /**
-   * Get dynamic field configuration
-   * @param {string} fieldName - Field name
-   * @returns {Object|null} - Field configuration
-   */
+
   getFieldConfig(fieldName) {
     return FIELD_CONFIG[fieldName] || null;
   }
 
-  /**
-   * Get all available fields from data
-   * @param {Array} data - Telemetry data
-   * @returns {Array} - Array of field names
-   */
+ 
   getAvailableFields(data) {
     if (!data || data.length === 0) return [];
     
@@ -224,9 +185,7 @@ class DataService {
     );
   }
 
-  /**
-   * Clear cache
-   */
+
   clearCache() {
     this.cache.clear();
   }
